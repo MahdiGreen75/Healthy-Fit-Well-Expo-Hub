@@ -1,12 +1,26 @@
 import { SiWorldhealthorganization } from 'react-icons/si';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import "./Navbar.css"
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    const handleLoginAndOut = () => {
+        //login handler
+        if(!user) {
+            navigate("/login");
+        }
+
+        //logout handler
+        if (user) {
+            logOut()
+                .then(() => console.log("sign out successfull"))
+                .catch(() => console.error("sign out error"))
+        }
+    }
 
     return (
         <div className="xl:max-w-6xl lg:max-w-6xl md:max-w-2xl mx-auto flex justify-between items-center">
@@ -18,15 +32,15 @@ const Navbar = () => {
                     <span className="text-green-400 font-satisfy ">Well</span>
                 </h1>
             </div>
-           
-            <div className={`${user? "pr-20": "pr-40"}`}>
+
+            <div className={`${user ? "pr-20" : "pr-40"}`}>
                 <ul className='flex gap-4 text-xs sm:text-sm font-semibold text-white nav-text'>
                     <li><NavLink>ITEM 1</NavLink></li>
                     <li><NavLink>ITEM 2</NavLink></li>
                     <li><NavLink>ITEM 3</NavLink></li>
                 </ul>
             </div>
-            
+
             <div className='flex gap-2 items-center '>
                 <div>
                     {
@@ -38,9 +52,9 @@ const Navbar = () => {
                         </>
                     }
                 </div>
-                <div className='text-xs sm:text-sm px-3 py-1 bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white rounded-sm'>
+                <button onClick={handleLoginAndOut} className='text-xs sm:text-sm px-3 py-1 bg-blue-500 hover:bg-blue-700 active:bg-blue-800 text-white rounded-sm'>
                     {user ? "Log Out" : "Log In"}
-                </div>
+                </button>
             </div>
         </div>
     );

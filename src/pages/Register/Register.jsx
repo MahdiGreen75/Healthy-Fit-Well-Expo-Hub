@@ -15,8 +15,9 @@ const Register = () => {
         
         userSignUp(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log("sign up is successful",result.user);
             })
+            .catch(()=>console.error("user sign up error."))
     }
 
     return (

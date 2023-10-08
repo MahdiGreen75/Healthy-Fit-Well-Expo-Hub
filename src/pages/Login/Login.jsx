@@ -1,11 +1,35 @@
+import React from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ImCross } from 'react-icons/im';
 
 const Login = () => {
+    const { user } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState([]);
+    const { logIn } = useContext(AuthContext);
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get("email");
+        const password = form.get("password");
+
+        logIn(email, password)
+            .then(result => console.log("user login successfull", result.user))
+            .catch(() => {
+                if (!loginError.includes("Enter email and password correctly.")) {
+                    setLoginError([...loginError, "Enter email and password correctly."])
+                }
+            })
+    }
+
+
     return (
         <>
             <div className="md:w-[30%] mx-auto p-5 bg-white border rounded-md shadow-2xl my-10 space-y-5">
                 <h1 className="text-center font-semibold text-xl">Login</h1>
-                <form>
+                <form onSubmit={onSubmitHandler}>
                     <div>
                         <label htmlFor="email">
                             <p className="text-sx font-semibold text-gray-800">Username</p>
@@ -29,10 +53,20 @@ const Login = () => {
                     </Link>
                 </p>
             </div>
-            <div className="md:w-[30%] mx-auto p-5 bg-white border rounded-md shadow-2xl my-10">
-                <h1 className="text-center font-semibold text-xl">Password Guide</h1>
+            {/* Showing error when user is logged out */}
+            {(loginError.length && !user) && <>
+                <div className="md:w-[30%] mx-auto p-5 bg-white border rounded-md shadow-2xl my-10">
+                    {
+                        loginError.map((item, index) => <React.Fragment key={index}>
+                            <h1 className="text-center flex gap-1 items-center text-red-300 font-semibold text-sm">
+                                <ImCross></ImCross> <span>{item}</span>
+                            </h1>
+                        </React.Fragment>)
+                    }
+                </div>
+            </>
 
-            </div>
+            }
         </>
     );
 };
