@@ -1,0 +1,154 @@
+[
+    {
+        "id": 1,
+        "title": "Wellness",
+        "description": "Experience holistic well-being with our wellness events. Explore techniques for relaxation, stress management, and healthy living.",
+        "dateAndTime": "Next event: October 15, 2023, 9:00 AM - 5:00 PM",
+        "location": "Venue: Serenity Retreat Center, 123 Main St, Anytown, USA",
+        "highlights": [
+            "Guided meditation sessions",
+            "Mindfulness workshops",
+            "Nutrition and wellness experts"
+        ],
+        "pricing": "free",
+        "contactInfo": {
+            "email": "wellness@example.com",
+            "phone": "+1 (123) 456-7890"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 7 days before the event will receive a full refund.",
+        "image": "https://i.ibb.co/dmbG3wy/wellness.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Yoga",
+        "description": "Discover inner peace and physical fitness through our yoga classes. Join experienced instructors in serene settings.",
+        "dateAndTime": "Next event: November 5, 2023, 10:00 AM - 4:00 PM",
+        "location": "Venue: Tranquil Yoga Studio, 456 Oak Avenue, Anytown, USA",
+        "highlights": [
+            "Hatha, Vinyasa, and Ashtanga yoga sessions",
+            "Meditation and relaxation techniques",
+            "Yoga for beginners and advanced practitioners"
+        ],
+        "pricing": "25",
+        "contactInfo": {
+            "email": "yoga@example.com",
+            "phone": "+1 (123) 789-0123"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 7 days before the event will receive a full refund.",
+        "image": "https://i.ibb.co/x8X6jkV/yoga.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Fitness",
+        "description": "Get in shape and boost your energy with our fitness programs. Join us for fun workouts and expert guidance.",
+        "dateAndTime": "Next event: October 22, 2023, 6:00 AM - 8:00 PM",
+        "location": "Venue: FitLife Gym, 789 Elm Street, Anytown, USA",
+        "highlights": [
+            "Group fitness classes",
+            "Personal training sessions",
+            "Nutrition and diet tips"
+        ],
+        "pricing": "30",
+        "contactInfo": {
+            "email": "fitness@example.com",
+            "phone": "+1 (456) 789-5678"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 7 days before the event will receive a full refund.",
+        "image": "https://i.ibb.co/Lnps828/fitness.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Wellness Expo",
+        "description": "Join our Wellness Expo to explore the latest health and wellness products and services. Connect with industry experts.",
+        "dateAndTime": "Next event: November 12-14, 2023",
+        "location": "Venue: Convention Center, 789 Elm Street, Anytown, USA",
+        "highlights": [
+            "Health and wellness product showcases",
+            "Expert keynote speakers",
+            "Interactive workshops and demos"
+        ],
+        "pricing": "25",
+        "contactInfo": {
+            "email": "expo@example.com",
+            "phone": "+1 (789) 123-4567"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 14 days before the event will receive a full refund.",
+        "image": "https://i.ibb.co/dLMJQVL/wellness-expo.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Medical Checkup",
+        "description": "Ensure your well-being with comprehensive medical checkups. Our experienced medical professionals are here to help.",
+        "dateAndTime": "Available by appointment",
+        "location": "Clinic: HealthyCare Clinic, 321 Maple Avenue, Anytown, USA",
+        "highlights": [
+            "Full-body health checkup",
+            "Personalized health recommendations",
+            "Advanced diagnostic tests"
+        ],
+        "pricing": "50",
+        "contactInfo": {
+            "email": "medical@example.com",
+            "phone": "+1 (234) 567-8901"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 48 hours before the appointment will receive a full refund.",
+        "image": "https://i.ibb.co/bRxK24X/medical-checkup.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Mental Health",
+        "description": "Prioritize your mental well-being. Join our workshops and counseling sessions to enhance your emotional health.",
+        "dateAndTime": "Next workshop: October 30, 2023, 2:00 PM - 5:00 PM",
+        "location": "Venue: Mindfulness Center, 789 Elm Street, Anytown, USA",
+        "highlights": [
+            "Mental health awareness talks",
+            "Counseling and support groups",
+            "Stress management techniques"
+        ],
+        "pricing": "free",
+        "contactInfo": {
+            "email": "mentalhealth@example.com",
+            "phone": "+1 (345) 678-9012"
+        },
+        "cancellationAndRefundPolicy": "No cancellation policy as the event is free.",
+        "image": "https://i.ibb.co/XbLx0Vn/mental-health.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Nutrition Workshop",
+        "description": "Learn about balanced nutrition and healthy eating habits in our interactive workshops. Enhance your dietary knowledge.",
+        "dateAndTime": "Next workshop: October 28, 2023, 3:00 PM - 6:00 PM",
+        "location": "Venue: NutriWell Center, 123 Oak Street, Anytown, USA",
+        "highlights": [
+            "Healthy meal preparation demos",
+            "Nutritional consultations",
+            "Dietary planning tips"
+        ],
+        "pricing": "20",
+        "contactInfo": {
+            "email": "nutrition@example.com",
+            "phone": "+1 (567) 890-1234"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 48 hours before the workshop will receive a full refund.",
+        "image": "https://i.ibb.co/NKxqT6t/nutrition-workshop.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Healthy Cooking",
+        "description": "Master the art of healthy cooking with our culinary workshops. Create delicious and nutritious meals for you and your family.",
+        "dateAndTime": "Next workshop: November 10, 2023, 6:30 PM - 9:30 PM",
+        "location": "Venue: CookWell Kitchen, 567 Pine Street, Anytown, USA",
+        "highlights": [
+            "Hands-on cooking lessons",
+            "Recipe customization",
+            "Healthy meal planning"
+        ],
+        "pricing": "15",
+        "contactInfo": {
+            "email": "cooking@example.com",
+            "phone": "+1 (678) 901-2345"
+        },
+        "cancellationAndRefundPolicy": "Cancellation made 48 hours before the workshop will receive a full refund.",
+        "image": "https://i.ibb.co/LSF54T2/healthy-cooking.jpg"
+    }
+]

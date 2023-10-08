@@ -57,35 +57,35 @@ body {
 }
 
 .swiper-slide:nth-child(1n) {
-  background-image: url("../../assets/wellness.jpg");
+  background-image: url("https://i.ibb.co/dmbG3wy/wellness.jpg");
 }
 
 .swiper-slide:nth-child(2n) {
-  background-image: url("../../assets/yoga.jpg");
+  background-image: url("https://i.ibb.co/x8X6jkV/yoga.jpg");
 }
 
 .swiper-slide:nth-child(3n) {
-  background-image: url("../../assets/fitness.jpg");
+  background-image: url("https://i.ibb.co/Lnps828/fitness.jpg");
 }
 
 .swiper-slide:nth-child(4n) {
-  background-image: url("../../assets/wellness-expo.jpg");
+  background-image: url("https://i.ibb.co/dLMJQVL/wellness-expo.jpg");
 }
 
 .swiper-slide:nth-child(5n) {
-  background-image: url("../../assets/medical-checkup.jpg");
+  background-image: url("https://i.ibb.co/bRxK24X/medical-checkup.jpg");
 }
 
 .swiper-slide:nth-child(6n) {
-  background-image: url("../../assets/mental-health.jpg");
+  background-image: url("https://i.ibb.co/XbLx0Vn/mental-health.jpg");
 }
 
 .swiper-slide:nth-child(7n) {
-  background-image: url("../../assets/nutrition-workshop.jpg");
+  background-image: url("https://i.ibb.co/NKxqT6t/nutrition-workshop.jpg");
 }
 
 .swiper-slide:nth-child(8n) {
-  background-image: url("../../assets/healthy-cooking.jpg");
+  background-image: url("https://i.ibb.co/LSF54T2/healthy-cooking.jpg");
 }
 .swiper-slide:nth-child(9n) {
   background-image: url("../../assets/healthy-cooking.jpg");

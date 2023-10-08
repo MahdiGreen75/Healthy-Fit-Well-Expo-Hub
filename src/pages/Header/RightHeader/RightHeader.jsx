@@ -13,7 +13,7 @@ import { EffectCards } from 'swiper/modules';
 
 const RightHeader = () => {
     return (
-        <div className='p-20'>
+        <div className='p-20 drop-shadow-2xl'>
             <Swiper
                 effect={'cards'}
                 grabCursor={true}
