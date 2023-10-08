@@ -1,4 +1,4 @@
-#app { height: 100% }
+  #app { height: 100% }
 html,
 body {
   position: relative;
@@ -50,42 +50,45 @@ body {
   color: #fff;
 }
 
+.swiper-slide {
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.86);
+  background-position: center;
+  background-size: cover;
+}
+
 .swiper-slide:nth-child(1n) {
-  background-color: rgb(206, 17, 17);
+  background-image: url("../../assets/wellness.jpg");
 }
 
 .swiper-slide:nth-child(2n) {
-  background-color: rgb(0, 140, 255);
+  background-image: url("../../assets/yoga.jpg");
 }
 
 .swiper-slide:nth-child(3n) {
-  background-color: rgb(10, 184, 111);
+  background-image: url("../../assets/fitness.jpg");
 }
 
 .swiper-slide:nth-child(4n) {
-  background-color: rgb(211, 122, 7);
+  background-image: url("../../assets/wellness-expo.jpg");
 }
 
 .swiper-slide:nth-child(5n) {
-  background-color: rgb(118, 163, 12);
+  background-image: url("../../assets/medical-checkup.jpg");
 }
 
 .swiper-slide:nth-child(6n) {
-  background-color: rgb(180, 10, 47);
+  background-image: url("../../assets/mental-health.jpg");
 }
 
 .swiper-slide:nth-child(7n) {
-  background-color: rgb(35, 99, 19);
+  background-image: url("../../assets/nutrition-workshop.jpg");
 }
 
 .swiper-slide:nth-child(8n) {
-  background-color: rgb(0, 68, 255);
+  background-image: url("../../assets/healthy-cooking.jpg");
 }
-
 .swiper-slide:nth-child(9n) {
-  background-color: rgb(218, 12, 218);
+  background-image: url("../../assets/healthy-cooking.jpg");
 }
 
-.swiper-slide:nth-child(10n) {
-  background-color: rgb(54, 94, 77);
-}
+

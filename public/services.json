@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "name": "Wellness",
+      "image": "https://i.ibb.co/dmbG3wy/wellness.jpg",
+      "price": "Free",
+      "short_description": "Discover holistic well-being through our wellness events.",
+      "button_label": "Explore Wellness"
+    },
+    {
+      "id": 2,
+      "name": "Yoga",
+      "image": "https://i.ibb.co/x8X6jkV/yoga.jpg",
+      "price": "25",
+      "short_description": "Join our yoga sessions to find balance and flexibility.",
+      "button_label": "Join Yoga Class"
+    },
+    {
+      "id": 3,
+      "name": "Fitness",
+      "image": "https://i.ibb.co/Lnps828/fitness.jpg",
+      "price": "30",
+      "short_description": "Get in shape and stay fit with our dynamic fitness events.",
+      "button_label": "Get Fit Now"
+    },
+    {
+      "id": 4,
+      "name": "Wellness Expo",
+      "image": "https://i.ibb.co/dLMJQVL/wellness-expo.jpg",
+      "price": "25",
+      "short_description": "Explore the latest trends in wellness at our Wellness Expo.",
+      "button_label": "Visit Expo"
+    },
+    {
+      "id": 5,
+      "name": "Medical Checkup",
+      "image": "https://i.ibb.co/bRxK24X/medical-checkup.jpg",
+      "price": "50",
+      "short_description": "Prioritize your health with our medical checkups.",
+      "button_label": "Book Checkup"
+    },
+    {
+      "id": 6,
+      "name": "Mental Health",
+      "image": "https://i.ibb.co/XbLx0Vn/mental-health.jpg",
+      "price": "Free",
+      "short_description": "Take care of your mental health through our guidance.",
+      "button_label": "Talk to a Therapist"
+    },
+    {
+      "id": 7,
+      "name": "Nutrition Workshop",
+      "image": "https://i.ibb.co/NKxqT6t/nutrition-workshop.jpg",
+      "price": "20",
+      "short_description": "Learn about healthy eating habits in our workshops.",
+      "button_label": "Join Workshop"
+    },
+    {
+      "id": 8,
+      "name": "Healthy Cooking",
+      "image": "https://i.ibb.co/LSF54T2/healthy-cooking.jpg",
+      "price": "15",
+      "short_description": "Cook delicious and nutritious meals with our culinary experts.",
+      "button_label": "Cook Healthier"
+    }
+  ]
+  
