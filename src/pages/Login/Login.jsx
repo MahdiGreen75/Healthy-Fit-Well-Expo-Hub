@@ -89,7 +89,7 @@ const Login = () => {
                 <div className="border bg-slate-800"></div>
                 <p className="text-xs font-semibold text-gray-800">
                     Consider login with
-                    <button onClick={handleGoogleSignIn} className="text-blue-400 ml-1 hover:text-blue-600 active:text-blue-800 duration-300"> Google</button>
+                    <button onClick={handleGoogleSignIn} className="text-blue-400 ml-1 hover:text-blue-600 active:text-blue-800 duration-300"> Google</button> ?
 
                 </p>
                 <p className="text-xs font-semibold text-gray-800">

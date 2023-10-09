@@ -12,7 +12,7 @@ import Register from "../pages/Register/Register";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Root/>,
+        element: <Root />,
         children: [
             {
                 path: "/",
@@ -27,13 +27,14 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path: "/service-details",
+                path: "/service/:detailsId",
+                loader: () => fetch(`/serviceDetails.json`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: "/register",
                 element: <Register></Register>
-            }
+            },
         ]
     }
 ]);

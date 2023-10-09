@@ -9,16 +9,7 @@ import { useState } from 'react';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [validataion, setValidation] = useContext(FormValidationContext);
-    const [src, setSrc] = useState(user?.photoURL);
     const navigate = useNavigate();
-
-
-
-    const handleProfileError = () => {
-        let src = "../../../public/profile.jpg";
-        setSrc(src);
-    }
-
 
     const handleLoginAndOut = () => {
         //login handler
@@ -32,6 +23,7 @@ const Navbar = () => {
                 .then(() => {
                     console.log("sign out successfull")
                     setValidation("");
+                    navigate("/");
                 })
                 .catch(() => console.error("sign out error"))
 
@@ -51,9 +43,9 @@ const Navbar = () => {
 
             <div className={`${user ? "pr-20" : "pr-40"}`}>
                 <ul className='flex gap-4 text-xs sm:text-sm font-semibold text-white nav-text'>
-                    <li><NavLink>ITEM 1</NavLink></li>
-                    <li><NavLink>ITEM 2</NavLink></li>
-                    <li><NavLink>ITEM 3</NavLink></li>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/register">Sign Up</NavLink></li>
+                    <li><NavLink to="/register">Sign Up</NavLink></li>
                 </ul>
             </div>
 
@@ -62,7 +54,7 @@ const Navbar = () => {
                     {
                         user && <>
                             <div className='flex text-white nav-text gap-1'>
-                                <img src={src} onError={handleProfileError} className='w-6 rounded-full' />
+                                <img src={"../../../public/profile.jpg"}  className='w-6 rounded-full' />
                                 <span>{user.displayName}</span>
                             </div>
                         </>

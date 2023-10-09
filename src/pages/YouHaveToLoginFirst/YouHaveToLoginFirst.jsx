@@ -9,7 +9,7 @@ const YouHaveToLoginFirst = () => {
                 text-3xl">
                 Hey, seems like you are logged out!!!
             </h1>
-            <Link>
+            <Link to="/login">
                 <button className="flex items-center px-4 py-2 
                 bg-blue-500 hover:bg-blue-700 
                 active:bg-blue-900 duration-500 rounded 

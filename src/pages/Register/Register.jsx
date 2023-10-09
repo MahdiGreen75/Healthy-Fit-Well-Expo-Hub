@@ -7,7 +7,7 @@ import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [validataion, setValidation] = useContext(FormValidationContext);
-    const { userSignUp } = useContext(AuthContext);
+    const { userSignUp, loading } = useContext(AuthContext);
     // const { user } = useContext(AuthContext);
 
 
@@ -54,16 +54,22 @@ const Register = () => {
                 setValidation("");
 
                 updateProfile(result.user, {
-                    displayName:  userName,
+                    displayName: userName,
                     photoURL: picLink
-                }).then(()=>{
+                }).then(() => {
                     console.log("profile updated successful.")
-                }).catch(error=>console.error("An Error Occured while updatin your name and profile picture.", error))
+                }).catch(error => console.error("An Error Occured while updatin your name and profile picture.", error))
             })
             .catch(() => {
                 setValidation("Seems like you forgot your password.\nTake your time to recall it.");
                 console.error("user sign up error.");
             })
+    }
+
+    if (loading) {
+        return <div className="flex justify-center items-center my-40 w-full">
+            <p className="text-3xl font-semibold text-center">Loading...</p>
+        </div>
     }
 
     return (
