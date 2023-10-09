@@ -6,6 +6,7 @@ export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [validation, setValidation] = useState("");
+    const [location, setLocation] = useState("");
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     
@@ -47,7 +48,8 @@ const AuthProvider = ({ children }) => {
         signInWithOther,
         logIn,
         logOut,
-        validation: [validation, setValidation]
+        validation: [validation, setValidation],
+        location: [location, setLocation]
 
     }
 
