@@ -12,7 +12,7 @@ const LeftHeader = () => {
                     <span className="text-green-500 ">and wellness.</span>
                 </h1>
             </div>
-            <Link>
+            <Link to={"/about-us"}>
                 <button className="flex items-center px-4 py-2 
                 bg-blue-500 hover:bg-blue-700 
                 active:bg-blue-900 duration-500 rounded 

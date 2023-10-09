@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { ImCross } from 'react-icons/im';
 import { FormValidationContext } from "../../Providers/FormValidationProvider";
 import { updateProfile } from "firebase/auth";
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
     const [validataion, setValidation] = useContext(FormValidationContext);
@@ -52,11 +53,11 @@ const Register = () => {
             .then(result => {
                 console.log("sign up is successful", result.user);
                 setValidation("");
-
                 updateProfile(result.user, {
                     displayName: userName,
                     photoURL: picLink
                 }).then(() => {
+                    toast.success("Sign up Successfull!")
                     console.log("profile updated successful.")
                 }).catch(error => console.error("An Error Occured while updatin your name and profile picture.", error))
             })
@@ -130,6 +131,7 @@ const Register = () => {
 
                 </div>
             </div>
+            <div><Toaster/></div>
         </div>
     );
 };

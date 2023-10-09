@@ -2,9 +2,9 @@ import { SiWorldhealthorganization } from 'react-icons/si';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { FormValidationContext } from '../../Providers/FormValidationProvider';
-import "./Navbar.css"
 import { AuthContext } from '../../Providers/AuthProvider';
 import { useState } from 'react';
+import "./Navbar.css"
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -42,11 +42,15 @@ const Navbar = () => {
             </div>
 
             <div className={`${user ? "pr-20" : "pr-40"}`}>
-                <ul className='flex gap-4 text-xs sm:text-sm font-semibold text-white nav-text'>
-                    <li><NavLink to="/">Home</NavLink></li>
-                    <li><NavLink to="/register">Sign Up</NavLink></li>
-                    <li><NavLink to="/register">Sign Up</NavLink></li>
-                </ul>
+                <nav id="nav-bar" className='flex gap-6 text-xs sm:text-sm font-semibold text-white nav-text'>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/register">Sign Up</NavLink>
+                    <NavLink to="/about-us">About Us</NavLink>
+                    {user && <>
+                        <NavLink to="/products">Products</NavLink>
+                        <NavLink to="/blog">Blog</NavLink>
+                    </>}
+                </nav>
             </div>
 
             <div className='flex gap-2 items-center '>
@@ -54,7 +58,7 @@ const Navbar = () => {
                     {
                         user && <>
                             <div className='flex text-white nav-text gap-1'>
-                                <img src={"../../../public/profile.jpg"}  className='w-6 rounded-full' />
+                                <img src={"../../../profile.jpg"}  className='w-6 rounded-full' />
                                 <span>{user.displayName}</span>
                             </div>
                         </>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FormValidationContext } from "../../Providers/FormValidationProvider";
 import { GoogleAuthProvider } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const [validataion, setValidation] = useContext(FormValidationContext)
@@ -14,6 +15,7 @@ const Login = () => {
         signInWithOther(provider)
             .then(() => {
                 console.log("Google sign in successful.")
+                toast.success('Login successful!')
             })
             .catch(() => {
                 setValidation("Can't sign in with google!")
@@ -56,7 +58,8 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 setValidation("");
-                console.log("user login successfull", result.user)
+                console.log("user login successfull", result.user);
+                toast.success('Login successful!')
             })
             .catch(() => {
                 setValidation("Enter email and password correctly.");
@@ -106,7 +109,7 @@ const Login = () => {
                     </>
                 }
             </div>
-
+            <div><Toaster/></div>
         </>
     );
 };
