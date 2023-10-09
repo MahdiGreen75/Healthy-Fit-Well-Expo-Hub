@@ -1,9 +1,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ImCross } from 'react-icons/im';
+import { FormValidationContext } from "../../Providers/FormValidationProvider";
 
 const Register = () => {
-    const {userSignUp} = useContext(AuthContext);
+    const [validataion, setValidation] = useContext(FormValidationContext);
+    const { userSignUp } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
+
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -12,12 +17,44 @@ const Register = () => {
         const picLink = form.get("picLink");
         const email = form.get("email");
         const password = form.get("password");
-        
+
+        // validataion will only happen when user is about login.
+        // setvalidation setter should set to "" for UI cached data clean up inside signOut handler.
+
+        //password validation
+        if (!email) {
+            setValidation("You must provide a valid email.");
+            return;
+        }
+        if (!password) {
+            setValidation("You must provide a valid password");
+            return;
+        }
+        const sixCharacterless = /^.{1,6}$/;
+        if (sixCharacterless.test(password)) {
+            setValidation("Password must be above six characters.");
+            return;
+        }
+        const oneCapitalLetter = /^[^A-Z]*$/;
+        if (oneCapitalLetter.test(password)) {
+            setValidation("Password must have one capital letter.");
+            return;
+        }
+        const oneSpecialCharacter = /^[^\W_]*$/;
+        if (oneSpecialCharacter.test(password)) {
+            setValidation("Password must have one special letter.");
+            return;
+        }
+
+
         userSignUp(email, password)
             .then(result => {
-                console.log("sign up is successful",result.user);
+                console.log("sign up is successful", result.user);
+                setValidation("");
             })
-            .catch(()=>console.error("user sign up error."))
+            .catch(() => {
+                console.error("user sign up error.");
+            })
     }
 
     return (
@@ -65,12 +102,18 @@ const Register = () => {
                                 <span className="text-blue-400 hover:text-blue-600 active:text-blue-800 duration-300">Login</span>
                             </Link>
                         </p>
+                        <p>
+                            {/* Showing error for validation*/}
+                            {(validataion) && <>
+                                <p className="text-center flex gap-1 items-center text-red-300 font-semibold text-xs w-max">
+                                    <ImCross></ImCross> <span>{validataion}</span>
+                                </p>
+                            </>
+                            }
+                        </p>
                     </div>
 
                 </div>
-            </div>
-            <div className="md:w-[30%] mx-auto p-5 bg-white border rounded-md shadow-2xl my-10">
-                <h1 className="text-center font-semibold text-xl">Password Guide</h1>
             </div>
         </div>
     );

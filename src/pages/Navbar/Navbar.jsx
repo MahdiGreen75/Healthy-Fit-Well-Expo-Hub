@@ -1,24 +1,30 @@
 import { SiWorldhealthorganization } from 'react-icons/si';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../../Providers/AuthProvider';
+import { FormValidationContext } from '../../Providers/FormValidationProvider';
 import "./Navbar.css"
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Navbar = () => {
+    const [validataion, setValidation] = useContext(FormValidationContext);
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLoginAndOut = () => {
         //login handler
-        if(!user) {
+        if (!user) {
             navigate("/login");
         }
 
         //logout handler
         if (user) {
             logOut()
-                .then(() => console.log("sign out successfull"))
+                .then(() => {
+                    console.log("sign out successfull")
+                    setValidation("");
+                })
                 .catch(() => console.error("sign out error"))
+
         }
     }
 

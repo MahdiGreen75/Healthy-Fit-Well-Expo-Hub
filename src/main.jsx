@@ -6,12 +6,15 @@ import {
 import "./index.css";
 import router from "./routes/Routes";
 import AuthProvider from "./Providers/AuthProvider";
+import FormValidationProvider from "./Providers/FormValidationProvider";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <FormValidationProvider>
+        <RouterProvider router={router} />
+      </FormValidationProvider>
     </AuthProvider>
   </React.StrictMode>
 );

@@ -1,13 +1,13 @@
-import React from "react";
-import { useContext, useState } from "react";
+import { ImCross } from 'react-icons/im';
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { ImCross } from 'react-icons/im';
+import { FormValidationContext } from "../../Providers/FormValidationProvider";
 
 const Login = () => {
-    const { user } = useContext(AuthContext);
-    const [loginError, setLoginError] = useState([]);
+    const [validataion, setValidation] = useContext(FormValidationContext)
     const { logIn } = useContext(AuthContext);
+
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -15,12 +15,40 @@ const Login = () => {
         const email = form.get("email");
         const password = form.get("password");
 
+        //password validation
+        if (!email) {
+            setValidation("You must provide a valid email.");
+            return;
+        }
+        if (!password) {
+            setValidation("You must provide a valid password");
+            return;
+        }
+        const sixCharacterless = /^.{1,6}$/;
+        if (sixCharacterless.test(password)) {
+            setValidation("Password must be above six characters.");
+            return;
+        }
+        const oneCapitalLetter = /^[^A-Z]*$/;
+        if (oneCapitalLetter.test(password)) {
+            setValidation("Password must have one capital letter.");
+            return;
+        }
+        const oneSpecialCharacter = /^[^\W_]*$/;
+        if (oneSpecialCharacter.test(password)) {
+            setValidation("Password must have one special letter.");
+            return;
+        }
+
+
+
         logIn(email, password)
-            .then(result => console.log("user login successfull", result.user))
+            .then(result => {
+                setValidation("");
+                console.log("user login successfull", result.user)
+            })
             .catch(() => {
-                if (!loginError.includes("Enter email and password correctly.")) {
-                    setLoginError([...loginError, "Enter email and password correctly."])
-                }
+                setValidation("Enter email and password correctly.");
             })
     }
 
@@ -47,26 +75,21 @@ const Login = () => {
                 active:bg-blue-900 duration-500 rounded 
                 text-white outline-none w-full mt-5"/>
                 </form>
-                <p className="text-sx font-semibold text-gray-800">
+                <p className="text-xs font-semibold text-gray-800">
                     Do not have an account? <Link to={"/register"}>
                         <span className="text-blue-400 hover:text-blue-600 active:text-blue-800 duration-300">Register</span>
                     </Link>
                 </p>
+                {
+                    validataion &&
+                    <>
+                        <h1 className="flex gap-1 items-center text-red-300 font-semibold text-xs">
+                            <ImCross></ImCross> <span>{validataion}</span>
+                        </h1>
+                    </>
+                }
             </div>
-            {/* Showing error when user is logged out */}
-            {(loginError.length && !user) && <>
-                <div className="md:w-[30%] mx-auto p-5 bg-white border rounded-md shadow-2xl my-10">
-                    {
-                        loginError.map((item, index) => <React.Fragment key={index}>
-                            <h1 className="text-center flex gap-1 items-center text-red-300 font-semibold text-sm">
-                                <ImCross></ImCross> <span>{item}</span>
-                            </h1>
-                        </React.Fragment>)
-                    }
-                </div>
-            </>
 
-            }
         </>
     );
 };
