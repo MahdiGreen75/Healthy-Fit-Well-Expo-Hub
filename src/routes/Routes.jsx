@@ -12,10 +12,12 @@ import About from "../pages/About/About";
 import Products from "../pages/Products/Products";
 import Blogs from "../pages/Blogs/Blogs"
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
+        errorElement: <ErrorPage></ErrorPage>,
         element: <Root />,
         children: [
             {
