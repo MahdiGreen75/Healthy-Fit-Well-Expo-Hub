@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ImCross } from 'react-icons/im';
 import { FormValidationContext } from "../../Providers/FormValidationProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
     const [validataion, setValidation] = useContext(FormValidationContext);
@@ -51,8 +52,16 @@ const Register = () => {
             .then(result => {
                 console.log("sign up is successful", result.user);
                 setValidation("");
+
+                updateProfile(result.user, {
+                    displayName:  userName,
+                    photoURL: picLink
+                }).then(()=>{
+                    console.log("profile updated successful.")
+                }).catch(error=>console.error("An Error Occured while updatin your name and profile picture.", error))
             })
             .catch(() => {
+                setValidation("Seems like you forgot your password.\nTake your time to recall it.");
                 console.error("user sign up error.");
             })
     }

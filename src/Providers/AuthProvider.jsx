@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import auth from "../services/firebase/firebase.config";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
-
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
     const [validation, setValidation] = useState("");
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (stableUser) => {
@@ -26,6 +26,10 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const signInWithOther = (provider) => {
+        return signInWithPopup(auth, provider);
+    }
+
     const logIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
@@ -40,6 +44,7 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         userSignUp,
+        signInWithOther,
         logIn,
         logOut,
         validation: [validation, setValidation]

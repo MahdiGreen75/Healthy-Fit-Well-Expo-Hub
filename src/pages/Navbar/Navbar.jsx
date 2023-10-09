@@ -4,11 +4,21 @@ import { useContext } from 'react';
 import { FormValidationContext } from '../../Providers/FormValidationProvider';
 import "./Navbar.css"
 import { AuthContext } from '../../Providers/AuthProvider';
+import { useState } from 'react';
 
 const Navbar = () => {
-    const [validataion, setValidation] = useContext(FormValidationContext);
     const { user, logOut } = useContext(AuthContext);
+    const [validataion, setValidation] = useContext(FormValidationContext);
+    const [src, setSrc] = useState(user?.photoURL);
     const navigate = useNavigate();
+
+
+
+    const handleProfileError = () => {
+        let src = "../../../public/profile.jpg";
+        setSrc(src);
+    }
+
 
     const handleLoginAndOut = () => {
         //login handler
@@ -52,8 +62,8 @@ const Navbar = () => {
                     {
                         user && <>
                             <div className='flex text-white nav-text gap-1'>
-                                <img src="/public/profile.jpg" className='w-6 rounded-full' />
-                                <span>{typeof (user)}</span>
+                                <img src={src} onError={handleProfileError} className='w-6 rounded-full' />
+                                <span>{user.displayName}</span>
                             </div>
                         </>
                     }

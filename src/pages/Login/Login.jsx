@@ -3,11 +3,22 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FormValidationContext } from "../../Providers/FormValidationProvider";
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [validataion, setValidation] = useContext(FormValidationContext)
-    const { logIn } = useContext(AuthContext);
+    const { logIn, signInWithOther } = useContext(AuthContext);
+    const provider = new GoogleAuthProvider();
 
+    const handleGoogleSignIn = () => {
+        signInWithOther(provider)
+            .then(() => {
+                console.log("Google sign in successful.")
+            })
+            .catch(() => {
+                setValidation("Can't sign in with google!")
+            })
+    }
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -60,7 +71,7 @@ const Login = () => {
                 <form onSubmit={onSubmitHandler}>
                     <div>
                         <label htmlFor="email">
-                            <p className="text-sx font-semibold text-gray-800">Username</p>
+                            <p className="text-sx font-semibold text-gray-800">User Email</p>
                             <input type="email" name="email" id="email" placeholder="Your Email" className="outline-none w-full p-2 rounded-md placeholder:text-gray-300 placeholder:text-sm text-sm required border-2" />
                         </label>
                     </div>
@@ -75,6 +86,12 @@ const Login = () => {
                 active:bg-blue-900 duration-500 rounded 
                 text-white outline-none w-full mt-5"/>
                 </form>
+                <div className="border bg-slate-800"></div>
+                <p className="text-xs font-semibold text-gray-800">
+                    Consider login with
+                    <button onClick={handleGoogleSignIn} className="text-blue-400 ml-1 hover:text-blue-600 active:text-blue-800 duration-300"> Google</button>
+
+                </p>
                 <p className="text-xs font-semibold text-gray-800">
                     Do not have an account? <Link to={"/register"}>
                         <span className="text-blue-400 hover:text-blue-600 active:text-blue-800 duration-300">Register</span>
