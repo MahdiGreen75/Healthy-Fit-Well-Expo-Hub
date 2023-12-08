@@ -2,6 +2,9 @@
 
 Welcome to the Fitness Event Manager, a React-based front-end project that combines the power of React, React Router, Firebase for authentication, Tailwind CSS for styling, and the Context API for state management. This application is designed to help you manage health, yoga, and fitness events seamlessly.
 
+##Live link
+Link: https://healthyfitwell-expo-hub.web.app
+
 ## Top 5 Project Features
 
 1. **User Authentication with Firebase**
